@@ -3,7 +3,7 @@ import cv2
 board_status = cv2.imread('static/board_with_king.png')
 board_valid_move = cv2.imread('static/board_valid_move.jpg')
 board_illegal_move = cv2.imread('static/board_illegal_move.jpg')
-king_template = cv2.imread('static/king_grey.jpg')
+king_template = cv2.imread('static/white_king.jpg')
 square_pixel_size = int(board_status.shape[0]/8)
 
 def find_king(board, template=king_template,method=cv2.TM_CCOEFF_NORMED):

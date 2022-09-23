@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 
 board_img = cv2.imread('static/board_with_two_towers.png')
-tower_template = cv2.imread('static/tower_grey.png')
+tower_template = cv2.imread('static/white_tower.png')
 square_pixel_size = int(board_img.shape[0]/8)
 threshold=0.8
 

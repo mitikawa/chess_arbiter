@@ -6,7 +6,7 @@ board_img_after_move = cv2.imread('static/board_rf1_rb4.png')
 board_img_illegal_move = cv2.imread('static/board_illegal_rook_move.png')
 board_img_simultaneous_moves = cv2.imread('static/board_simultaneous_moves.png')
 
-tower_template = cv2.imread('static/tower_grey.png')
+tower_template = cv2.imread('static/white_tower.png')
 threshold = 0.8
 square_pixel_size = int(board_img.shape[0]/8)
 
