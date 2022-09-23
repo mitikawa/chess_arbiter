@@ -50,7 +50,7 @@ def check_move(comparison_dict):
     original_coordinates = [k for k,v in comparison_dict.items() if v[0]=='original_position'][0]
     next_coordinates = [k for k,v in comparison_dict.items() if v[0]=='next_position'][0]
     piece = comparison_dict[original_coordinates][1]
-    if piece =='white_pawn':
+    if piece =='white_pawn' or piece=='black_pawn':
         check_pawn_move(original_coordinates, next_coordinates, piece)
 
 def check_pawn_move(original_coordinates,next_coordinates,piece):
@@ -77,5 +77,25 @@ def check_pawn_move(original_coordinates,next_coordinates,piece):
         print('Valid pawn move: '+ x + ' -> ' + y)
         print('-----------------------------------------------')
         return
-
+    if piece=='black_pawn':
+        if x_0!=x_1:
+            print('Illegal black pawn move: ' + x + ' -> ' + y)
+            print('Attention: en passant and capture rules are not implemented')
+            print('-----------------------------------------------')
+            return
+        if y_0>y_1:
+            print('Illegal pawn move backwards: ' + x + ' -> ' + y)
+            print('-----------------------------------------------')
+            return
+        if y_1-y_0>2:
+            print('Pawns cannot move more than 2 squares at once. '+ x + ' -> ' + y)
+            print('-----------------------------------------------')
+            return
+        if y_1-y_0 == 2 and not y_0 == 1:
+            print('Pawns cannot move 2 squares if not on original rank. '+ x + ' -> ' + y)
+            print('-----------------------------------------------')
+            return
+        print('Valid pawn move: '+ x + ' -> ' + y)
+        print('-----------------------------------------------')
+        return
     
