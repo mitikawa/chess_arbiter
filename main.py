@@ -67,7 +67,7 @@ board_bishop_0 = recognize_pieces(board_img_bishop_0)
 board_bishop_1 = recognize_pieces(board_img_bishop_1)
 board_bishop_2 = recognize_pieces(board_img_bishop_2)'''
 
-#Check move vailidity - bishops
+#Check move validity - bishops
 
 '''check_move(find_move(board_bishop_0,board_bishop_1))
 check_move(find_move(board_bishop_0,board_bishop_2))'''
@@ -82,7 +82,7 @@ board_king_0 = recognize_pieces(board_img_king_0)
 board_king_1 = recognize_pieces(board_img_king_1)
 board_king_2 = recognize_pieces(board_img_king_2)'''
 
-#Check move vailidity - kings
+#Check move validity - kings
 '''
 check_move(find_move(board_king_0,board_king_1))
 check_move(find_move(board_king_0,board_king_2))'''
@@ -97,7 +97,7 @@ board_knight_0 = recognize_pieces(board_img_knight_0)
 board_knight_1 = recognize_pieces(board_img_knight_1)
 board_knight_2 = recognize_pieces(board_img_knight_2)'''
 
-#Check move vailidity - knights
+#Check move validity - knights
 
 '''check_move(find_move(board_knight_0,board_knight_1))
 check_move(find_move(board_knight_0,board_knight_2))'''
@@ -117,7 +117,7 @@ board_queen_4 = recognize_pieces(board_img_queen_4)
 
 
 
-#Check move vailidity - queens
+#Check move validity - queens
 
 check_move(find_move(board_queen_0,board_queen_1))
 check_move(find_move(board_queen_0,board_queen_2))
