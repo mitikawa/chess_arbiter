@@ -5,7 +5,7 @@ from chess_functions import *
 board_img = cv2.imread('static/board_full.png')
 threshold = 0.9
 
-def find_pieces(board_img, templates=templates,method=cv2.TM_CCOEFF_NORMED, threshold = threshold, board=None):
+def find_pieces(board_img, templates=templates,method=cv2.TM_CCORR_NORMED , threshold = threshold, board=None):
     if board==None:
         board=init_board_dict()
     for piece in templates:
@@ -16,6 +16,6 @@ def find_pieces(board_img, templates=templates,method=cv2.TM_CCOEFF_NORMED, thre
                 board[(xs[i]//square_pixel_size,ys[i]//square_pixel_size)] = f"{piece}"
     return board
 
-board = find_pieces(board_img, method=5)
+board = find_pieces(board_img)
 
 print(board)
