@@ -55,6 +55,11 @@ def check_move(comparison_dict):
         print('No move found.')
         print_hashed_line()
         return
+    if len(comparison_dict)==1:
+        print('Move not recognized.')
+        print_hashed_line()
+        return 'not_recognized'        
+    print(comparison_dict)
     original_coordinates = [k for k,v in comparison_dict.items() if v[0]=='original_position'][0]
     next_coordinates = [k for k,v in comparison_dict.items() if v[0]=='next_position'][0]
     piece = comparison_dict[original_coordinates][1]
