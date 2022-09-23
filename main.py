@@ -44,15 +44,30 @@ check_move(find_move(board_e4_d6, board_e4_d4))'''
 
 
 #Rook moves
-board_img_rook_0 = cv2.imread('static/board_with_two_towers.png')
+'''board_img_rook_0 = cv2.imread('static/board_with_two_towers.png')
 board_img_rook_1 = cv2.imread('static/board_rf1_rb4.png')
 board_img_rook_2 = cv2.imread('static/board_illegal_rook_move.png')
 
 board_rook_0 = recognize_pieces(board_img_rook_0)
 board_rook_1 = recognize_pieces(board_img_rook_1)
-board_rook_2 = recognize_pieces(board_img_rook_2)
+board_rook_2 = recognize_pieces(board_img_rook_2)'''
 
 #check move validity - rooks
 
-check_move(find_move(board_rook_0,board_rook_1))
-check_move(find_move(board_rook_0,board_rook_2))
+'''check_move(find_move(board_rook_0,board_rook_1))
+check_move(find_move(board_rook_0,board_rook_2))'''
+
+
+#Bishop moves
+board_img_bishop_0 = cv2.imread('static/board_bishop_base.png')
+board_img_bishop_1 = cv2.imread('static/board_bishop_valid.png')
+board_img_bishop_2 = cv2.imread('static/board_bishop_illegal.png')
+
+board_bishop_0 = recognize_pieces(board_img_bishop_0)
+board_bishop_1 = recognize_pieces(board_img_bishop_1)
+board_bishop_2 = recognize_pieces(board_img_bishop_2)
+
+#Check move vailidity - bishops
+
+check_move(find_move(board_bishop_0,board_bishop_1))
+check_move(find_move(board_bishop_0,board_bishop_2))

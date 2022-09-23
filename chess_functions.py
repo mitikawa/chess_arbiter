@@ -59,6 +59,9 @@ def check_move(comparison_dict):
         check_pawn_move(original_coordinates, next_coordinates, piece)
     if piece in ('black_rook','white_rook'):
         check_rook_move(original_coordinates, next_coordinates, piece)
+    if piece in ('black_bishop', 'white_bishop'):
+        check_bishop_move(original_coordinates, next_coordinates, piece)
+
 
 def check_pawn_move(original_coordinates,next_coordinates,piece):
     x,y,x_0,y_0,x_1,y_1 = get_x_y_coord_and_name(original_coordinates,next_coordinates)
@@ -113,4 +116,10 @@ def check_rook_move(original_coordinates, next_coordinates, piece):
         return
     print('Valid rook move: '+ x + ' -> ' + y)
 
+def check_bishop_move(original_coordinates, next_coordinates, piece):
+    x,y,x_0,y_0,x_1,y_1 = get_x_y_coord_and_name(original_coordinates,next_coordinates)
+    if abs(x_0-x_1) != abs(y_0-y_1):
+        print('Illegal bishop move: ' + x + ' -> ' + y)
+        return
+    print('Valid bishop move: '+ x + ' -> ' + y)
     
