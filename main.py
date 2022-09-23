@@ -11,6 +11,7 @@ board_original = recognize_pieces(board_img)'''
 board_img_e3 = cv2.imread('static/board_e3.png')
 board_img_e5 = cv2.imread('static/board_e5.png')
 board_img_illegal_white_pawn_move = cv2.imread('static/board_illegal_white_pawn_move.png')
+#Test on three sequential boards from a game
 
 board_e4 = recognize_pieces(board_img_e4)
 board_e3 = recognize_pieces(board_img_e3)
@@ -25,11 +26,19 @@ check_move(find_move(board_original, board_illegal))
 check_move(find_move(board_original, board_original))
 check_move(find_move(board_e3, board_e5))
 check_move(find_move(board_e4, board_original))'''
+board_img_0 = cv2.imread('static/board_test_0.png')
+board_img_1 = cv2.imread('static/board_test_1.png')
+board_img_2 = cv2.imread('static/board_test_2.png')
+board_img_3 = cv2.imread('static/board_test_3.png')
 
 #Black pawn moves
 '''board_img_e4_d6 = cv2.imread('static/board_e4_d6.png')
 board_img_e4_d5 = cv2.imread('static/board_e4_d5.png')
 board_img_e4_d4 = cv2.imread('static/board_e4_d4.png')
+board_0 = recognize_pieces(board_img_0)
+board_1 = recognize_pieces(board_img_1)
+board_2 = recognize_pieces(board_img_2)
+board_3 = recognize_pieces(board_img_3)
 
 board_e4_d6 = recognize_pieces(board_img_e4_d6)
 board_e4_d5 = recognize_pieces(board_img_e4_d5)
@@ -122,4 +131,5 @@ board_queen_4 = recognize_pieces(board_img_queen_4)
 check_move(find_move(board_queen_0,board_queen_1))
 check_move(find_move(board_queen_0,board_queen_2))
 check_move(find_move(board_queen_0,board_queen_3))
-check_move(find_move(board_queen_0,board_queen_4))
+check_move(find_move(board_queen_0,board_queen_4))check_move(find_move(board_1,board_2))
+check_move(find_move(board_2,board_3))
