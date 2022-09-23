@@ -98,4 +98,9 @@ def check_pawn_move(original_coordinates,next_coordinates,piece):
         print('Valid pawn move: '+ x + ' -> ' + y)
         print('-----------------------------------------------')
         return
+    if piece in ('black_rook','white_rook'):
+        if x_0!=x_1 and y_0!=y_1:
+            print('Illegal rook move: ' + x + ' -> ' + y)
+            return
+        print('Valid rook move: '+ x + ' -> ' + y)
     
