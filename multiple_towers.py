@@ -13,8 +13,8 @@ def get_square_name(coordinates):
 
 def init_board_dict():
     board_dict = {}
-    for i in range(0,7):
-        for j in range(0,7):
+    for i in range(0,8):
+        for j in range(0,8):
             board_dict[(i,j)]=0
     return board_dict
 
