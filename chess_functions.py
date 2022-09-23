@@ -5,6 +5,9 @@ import numpy as np
 square_pixel_size = 73
 threshold = 0.9
 
+def print_hashed_line():
+    print('-----------------------------------------------')
+
 def init_board_dict():
     board_dict = {}
     for i in range(0,8):
@@ -46,11 +49,11 @@ def get_x_y_coord_and_name(original_coordinates,next_coordinates):
 def check_move(comparison_dict):
     if len(comparison_dict)>2:
         print("More than one move found.")
-        print('-----------------------------------------------')
+        print_hashed_line()
         return
     if len(comparison_dict)==0:
         print('No move found.')
-        print('-----------------------------------------------')
+        print_hashed_line()
         return
     original_coordinates = [k for k,v in comparison_dict.items() if v[0]=='original_position'][0]
     next_coordinates = [k for k,v in comparison_dict.items() if v[0]=='next_position'][0]
@@ -75,43 +78,43 @@ def check_pawn_move(original_coordinates,next_coordinates,piece):
         if x_0!=x_1:
             print('Illegal white pawn move: ' + x + ' -> ' + y)
             print('Attention: en passant and capture rules are not implemented')
-            print('-----------------------------------------------')
+            print_hashed_line()
             return
         if y_0<y_1:
             print('Illegal pawn move backwards: ' + x + ' -> ' + y)
-            print('-----------------------------------------------')
+            print_hashed_line()
             return
         if y_0-y_1>2:
             print('Pawns cannot move more than 2 squares at once. '+ x + ' -> ' + y)
-            print('-----------------------------------------------')
+            print_hashed_line()
             return
         if y_0-y_1 == 2 and not y_0 == 6:
             print('Pawns cannot move 2 squares if not on original rank. '+ x + ' -> ' + y)
-            print('-----------------------------------------------')
+            print_hashed_line()
             return
         print('Valid pawn move: '+ x + ' -> ' + y)
-        print('-----------------------------------------------')
+        print_hashed_line()
         return
     if piece=='black_pawn':
         if x_0!=x_1:
             print('Illegal black pawn move: ' + x + ' -> ' + y)
             print('Attention: en passant and capture rules are not implemented')
-            print('-----------------------------------------------')
+            print_hashed_line()
             return
         if y_0>y_1:
             print('Illegal pawn move backwards: ' + x + ' -> ' + y)
-            print('-----------------------------------------------')
+            print_hashed_line()
             return
         if y_1-y_0>2:
             print('Pawns cannot move more than 2 squares at once. '+ x + ' -> ' + y)
-            print('-----------------------------------------------')
+            print_hashed_line()
             return
         if y_1-y_0 == 2 and not y_0 == 1:
             print('Pawns cannot move 2 squares if not on original rank. '+ x + ' -> ' + y)
-            print('-----------------------------------------------')
+            print_hashed_line()
             return
         print('Valid pawn move: '+ x + ' -> ' + y)
-        print('-----------------------------------------------')
+        print_hashed_line()
         return
 
 
@@ -119,41 +122,53 @@ def check_rook_move(original_coordinates, next_coordinates, piece):
     x,y,x_0,y_0,x_1,y_1 = get_x_y_coord_and_name(original_coordinates,next_coordinates)
     if x_0!=x_1 and y_0!=y_1:
         print('Illegal rook move: ' + x + ' -> ' + y)
+        print_hashed_line()
         return
     print('Valid rook move: '+ x + ' -> ' + y)
+    print_hashed_line()
 
 def check_bishop_move(original_coordinates, next_coordinates, piece):
     x,y,x_0,y_0,x_1,y_1 = get_x_y_coord_and_name(original_coordinates,next_coordinates)
     if abs(x_0-x_1) != abs(y_0-y_1):
         print('Illegal bishop move: ' + x + ' -> ' + y)
+        print_hashed_line()
         return
     print('Valid bishop move: '+ x + ' -> ' + y)
+    print_hashed_line()
 
 
 def check_king_move(original_coordinates, next_coordinates, piece):
     x,y,x_0,y_0,x_1,y_1 = get_x_y_coord_and_name(original_coordinates,next_coordinates)
     if abs(x_0-x_1)>1 or abs(y_0-y_1)>1:
         print('Illegal king move: ' + x + ' -> ' + y)
+        print_hashed_line()
         return
     print('Valid king move: ' + x + ' -> ' + y)
+    print_hashed_line()
 
 def check_knight_move(original_coordinates, next_coordinates, piece):
     x,y,x_0,y_0,x_1,y_1 = get_x_y_coord_and_name(original_coordinates,next_coordinates)
     if (abs(x_0-x_1)==1 and abs(y_0-y_1)==2) or (abs(x_0-x_1)==2 and abs(y_0-y_1)==1):
         print('Valid knight move: ' + x + ' -> ' + y)
+        print_hashed_line()
         return
     else:
         print('Illegal knight move: ' + x + ' -> ' + y)
+        print_hashed_line()
 
 def check_queen_move(original_coordinates, next_coordinates,piece):
     x,y,x_0,y_0,x_1,y_1 = get_x_y_coord_and_name(original_coordinates,next_coordinates)
     if abs(x_0-x_1)<=1 and abs(y_0-y_1)<=1:
         print('Valid queen move (adjacent): ' + x + ' -> ' + y)
+        print_hashed_line()
         return
     if x_0==x_1 or y_0 == y_1:
         print('Valid queen move (rook-like): ' + x + ' -> ' + y)
+        print_hashed_line()
         return
     if abs(x_0-x_1) == abs(y_0-y_1):
         print('Valid queen move (bishop-like): ' + x + ' -> ' + y)
+        print_hashed_line()
         return
     print('Illegal queen move: ' + x + ' -> ' + y)
+    print_hashed_line()
