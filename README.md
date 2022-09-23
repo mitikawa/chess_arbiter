@@ -24,9 +24,9 @@ The overaching objective guiding decision making is to develop a CV solution in 
 
 <br>
 
-This is project is developed in Python, using OpenCV for visual recognition and numpy.
+This project is developed in Python, using OpenCV for visual recognition and numpy.
 
-At the current stage, the code is able to detect the position of pieces from static images, recognize moves between images and check for move validity. In this early stage, the code only checks for basic piece movement, ignoring more complex rules such as en passant, castling and checks. Captures and conflicts with other pieces are also not yet implemented.
+At it's current stage, the code is able to detect the position of pieces from static images, recognize moves between images and check for move validity. In this early stage, the code only checks for basic piece movement, ignoring more complex rules such as en passant, castling and checks. Captures and conflicts with other pieces are also not yet implemented.
 
 <br>
 
