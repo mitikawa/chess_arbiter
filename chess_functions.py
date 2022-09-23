@@ -38,6 +38,11 @@ def find_move(original_board, next_board):
                 comparison_dict[key] = ['next_position', next_board[key]]
     return comparison_dict
 
+def get_x_y_coord_and_name(original_coordinates,next_coordinates):
+    x_0, y_0, x_1, y_1 = original_coordinates[0], original_coordinates[1], next_coordinates[0], next_coordinates[1]
+    x,y = get_square_name(original_coordinates), get_square_name(next_coordinates)
+    return x,y,x_0,y_0,x_1,y_1
+
 def check_move(comparison_dict):
     if len(comparison_dict)>2:
         print("More than one move found.")
@@ -52,10 +57,11 @@ def check_move(comparison_dict):
     piece = comparison_dict[original_coordinates][1]
     if piece =='white_pawn' or piece=='black_pawn':
         check_pawn_move(original_coordinates, next_coordinates, piece)
+    if piece in ('black_rook','white_rook'):
+        check_rook_move(original_coordinates, next_coordinates, piece)
 
 def check_pawn_move(original_coordinates,next_coordinates,piece):
-    x_0, y_0, x_1, y_1 = original_coordinates[0], original_coordinates[1], next_coordinates[0], next_coordinates[1]
-    x,y = get_square_name(original_coordinates), get_square_name(next_coordinates)
+    x,y,x_0,y_0,x_1,y_1 = get_x_y_coord_and_name(original_coordinates,next_coordinates)
     if piece=='white_pawn':
         if x_0!=x_1:
             print('Illegal white pawn move: ' + x + ' -> ' + y)
@@ -98,9 +104,13 @@ def check_pawn_move(original_coordinates,next_coordinates,piece):
         print('Valid pawn move: '+ x + ' -> ' + y)
         print('-----------------------------------------------')
         return
-    if piece in ('black_rook','white_rook'):
-        if x_0!=x_1 and y_0!=y_1:
-            print('Illegal rook move: ' + x + ' -> ' + y)
-            return
-        print('Valid rook move: '+ x + ' -> ' + y)
+
+
+def check_rook_move(original_coordinates, next_coordinates, piece):
+    x,y,x_0,y_0,x_1,y_1 = get_x_y_coord_and_name(original_coordinates,next_coordinates)
+    if x_0!=x_1 and y_0!=y_1:
+        print('Illegal rook move: ' + x + ' -> ' + y)
+        return
+    print('Valid rook move: '+ x + ' -> ' + y)
+
     
