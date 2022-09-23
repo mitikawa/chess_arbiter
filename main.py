@@ -59,15 +59,30 @@ check_move(find_move(board_rook_0,board_rook_2))'''
 
 
 #Bishop moves
-board_img_bishop_0 = cv2.imread('static/board_bishop_base.png')
+'''board_img_bishop_0 = cv2.imread('static/board_bishop_base.png')
 board_img_bishop_1 = cv2.imread('static/board_bishop_valid.png')
 board_img_bishop_2 = cv2.imread('static/board_bishop_illegal.png')
 
 board_bishop_0 = recognize_pieces(board_img_bishop_0)
 board_bishop_1 = recognize_pieces(board_img_bishop_1)
-board_bishop_2 = recognize_pieces(board_img_bishop_2)
+board_bishop_2 = recognize_pieces(board_img_bishop_2)'''
 
 #Check move vailidity - bishops
 
-check_move(find_move(board_bishop_0,board_bishop_1))
-check_move(find_move(board_bishop_0,board_bishop_2))
+'''check_move(find_move(board_bishop_0,board_bishop_1))
+check_move(find_move(board_bishop_0,board_bishop_2))'''
+
+
+# King moves
+board_img_king_0 = cv2.imread('static/board_with_king.png')
+board_img_king_1 = cv2.imread('static/board_valid_move.png')
+board_img_king_2 = cv2.imread('static/board_illegal_move.png')
+
+board_king_0 = recognize_pieces(board_img_king_0)
+board_king_1 = recognize_pieces(board_img_king_1)
+board_king_2 = recognize_pieces(board_img_king_2)
+
+#Check move vailidity - kings
+
+check_move(find_move(board_king_0,board_king_1))
+check_move(find_move(board_king_0,board_king_2))
