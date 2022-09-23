@@ -89,15 +89,37 @@ check_move(find_move(board_king_0,board_king_2))'''
 
 
 # knight moves
-board_img_knight_0 = cv2.imread('static/board_knight_base.png')
+'''board_img_knight_0 = cv2.imread('static/board_knight_base.png')
 board_img_knight_1 = cv2.imread('static/board_knight_valid.png')
 board_img_knight_2 = cv2.imread('static/board_knight_illegal.png')
 
 board_knight_0 = recognize_pieces(board_img_knight_0)
 board_knight_1 = recognize_pieces(board_img_knight_1)
-board_knight_2 = recognize_pieces(board_img_knight_2)
+board_knight_2 = recognize_pieces(board_img_knight_2)'''
 
 #Check move vailidity - knights
 
-check_move(find_move(board_knight_0,board_knight_1))
-check_move(find_move(board_knight_0,board_knight_2))
+'''check_move(find_move(board_knight_0,board_knight_1))
+check_move(find_move(board_knight_0,board_knight_2))'''
+
+# Queen moves
+board_img_queen_0 = cv2.imread('static/board_queen_base.png')
+board_img_queen_1 = cv2.imread('static/board_queen_illegal.png')
+board_img_queen_2 = cv2.imread('static/board_queen_adjacent.png')
+board_img_queen_3 = cv2.imread('static/board_queen_rook_like.png')
+board_img_queen_4 = cv2.imread('static/board_queen_bishop_like.png')
+
+board_queen_0 = recognize_pieces(board_img_queen_0)
+board_queen_1 = recognize_pieces(board_img_queen_1)
+board_queen_2 = recognize_pieces(board_img_queen_2)
+board_queen_3 = recognize_pieces(board_img_queen_3)
+board_queen_4 = recognize_pieces(board_img_queen_4)
+
+
+
+#Check move vailidity - queens
+
+check_move(find_move(board_queen_0,board_queen_1))
+check_move(find_move(board_queen_0,board_queen_2))
+check_move(find_move(board_queen_0,board_queen_3))
+check_move(find_move(board_queen_0,board_queen_4))

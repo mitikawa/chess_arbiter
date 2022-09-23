@@ -65,6 +65,8 @@ def check_move(comparison_dict):
         check_king_move(original_coordinates, next_coordinates, piece)
     if piece in ('black_knight','white_knight'):
         check_knight_move(original_coordinates, next_coordinates, piece)
+    if piece in ('black_queen','white_queen'):
+        check_queen_move(original_coordinates, next_coordinates, piece)
 
 
 def check_pawn_move(original_coordinates,next_coordinates,piece):
@@ -142,3 +144,16 @@ def check_knight_move(original_coordinates, next_coordinates, piece):
         return
     else:
         print('Illegal knight move: ' + x + ' -> ' + y)
+
+def check_queen_move(original_coordinates, next_coordinates,piece):
+    x,y,x_0,y_0,x_1,y_1 = get_x_y_coord_and_name(original_coordinates,next_coordinates)
+    if abs(x_0-x_1)<=1 and abs(y_0-y_1)<=1:
+        print('Valid queen move (adjacent): ' + x + ' -> ' + y)
+        return
+    if x_0==x_1 or y_0 == y_1:
+        print('Valid queen move (rook-like): ' + x + ' -> ' + y)
+        return
+    if abs(x_0-x_1) == abs(y_0-y_1):
+        print('Valid queen move (bishop-like): ' + x + ' -> ' + y)
+        return
+    print('Illegal queen move: ' + x + ' -> ' + y)
